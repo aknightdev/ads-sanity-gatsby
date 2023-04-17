@@ -316,6 +316,13 @@ async function createGuidePostPages(pathPrefix = "guides", graphql, actions, rep
 }
 
 exports.createPages = async ({ graphql, actions, reporter }) => {
+  const { createPage, createRedirect } = actions
+  const redirection = [
+    { from: '/business-advisory/business-health-check/', to: '/' }
+  ];
+  redirection.forEach(post => {
+    createRedirect({ fromPath: post.from, toPath: post.to, isPermanent: true })
+  });
   await createLandingPages("/", graphql, actions, reporter);
   await createTeamPages("meet-the-team", graphql, actions, reporter);
   await createBlogPostPages("news", graphql, actions, reporter);

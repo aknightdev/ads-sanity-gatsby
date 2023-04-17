@@ -8,6 +8,16 @@ import "./services.scss";
 
 function Services(props) {
   const illustration = props.background.image;
+  const [spc,setSpc] = React.useState('');
+  React.useEffect(() => {
+    if(window.location.href.includes("director-penalty-notice")){
+      setSpc('show_btn');
+      console.log(props._key);
+    }
+     return () => {
+       setSpc('');
+     }
+   }, [])
   return (
     <section className="business_services">
       <Image
@@ -35,6 +45,11 @@ function Services(props) {
                   </Col>
                 ))}
             </Row>
+          </Col>
+        </Row>
+        <Row>
+          <Col className={`fc_btn ${spc}`}>
+            <a href="/contact-us">Get a Free Consultation</a>
           </Col>
         </Row>
       </Container>

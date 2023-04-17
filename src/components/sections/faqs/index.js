@@ -1,4 +1,4 @@
-import React from "react";
+import React,{useState} from "react";
 import Helmet from "react-helmet";
 import { Row, Col, Container, Accordion, Card } from "react-bootstrap";
 import { Link } from "gatsby";
@@ -24,6 +24,15 @@ function Faqs(props) {
       }))
     ]
   };
+  const [togg,toggleEvn] = useState(null);
+  const changeState = (ind) =>{
+    if(togg==ind){
+      toggleEvn(null);
+    }
+    else{
+      toggleEvn(ind);
+    }
+  }
 
   return (
     <section className={`faq_saction ${props.grey ? "sectionOn" : ""}`}>
@@ -38,12 +47,11 @@ function Faqs(props) {
             <div className="custom_acco">
               <h2>{props.heading}</h2>
               <PortableText blocks={props.content} />
-
               <Accordion>
                 {props.faq &&
                   props.faq.map((data, index) => (
-                    <Card className="card" key={index + 1}>
-                      <Accordion.Toggle className="card_header" variant="link" eventKey={index + 1}>
+                    <Card className={togg==index?'active card':'card'} key={index + 1}>
+                      <Accordion.Toggle className="card_header" onClick={()=>changeState(index)} variant="link" eventKey={index + 1}>
                         {data.heading}
                       </Accordion.Toggle>
                       <Accordion.Collapse eventKey={index + 1}>

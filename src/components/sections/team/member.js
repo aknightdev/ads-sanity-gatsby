@@ -13,14 +13,14 @@ function Member(props) {
       <Col>
         <div className="singal_team_member">
           <div className="img">
-            <Image
+            {illustration.asset?<Image
               // pass asset, hotspot, and crop fields
               {...illustration}
               // tell Sanity how large to make the image (does not set any CSS)
               width={250}
               className="imgBanner"
               alt={illustration.alt}
-            />
+            />:null}
           </div>
           <h4>{props.name}</h4>
           <p>

@@ -29,6 +29,15 @@ const maybeImage = (illustration) => {
 };
 
 function ServiceItem(props) {
+  const [isPI,setPI] = React.useState(false);
+  React.useEffect(() => {
+    if(window.location.href.includes("personal-insolvency")){
+      setPI(true);
+    }
+     return () => {
+       setPI(false);
+     }
+  }, [])
   const data = props.data;
 
   const img = maybeImage(data.icon);
@@ -62,7 +71,7 @@ function ServiceItem(props) {
       {url && (
         <div className="b_sub_go">
           <Link to={url}>
-            <img src={imgarrow} width="15" alt="arrow" />
+            {isPI?<span>Learn more</span>:<img src={imgarrow} width="15" alt="arrow" />}
           </Link>
         </div>
       )}

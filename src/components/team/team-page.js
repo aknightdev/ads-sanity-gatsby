@@ -108,7 +108,7 @@ function TeamPage(props) {
           </Col>
         </Row>
       </Container>
-
+ 
       <aside className="sectionOn">
         <Container className="team_saction_mem sectionOn">
           <div className="meet_more_titel">

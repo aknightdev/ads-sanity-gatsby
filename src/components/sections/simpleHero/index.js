@@ -62,11 +62,11 @@ function SimpleHero(props) {
           </Link>
         )}
 
-        {heathCheck === true && (
+        {/*heathCheck === true && (
           <Link className="btnGreen" to="/business-health-check">
             Free Business Health Check {props.healthCheck}
           </Link>
-        )}
+        )*/}
 
         {healthCheckLogin === true && (
           <div>

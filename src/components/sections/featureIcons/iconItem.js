@@ -8,6 +8,7 @@ function IconItem(props) {
   const img = icon.icon.image;
   return (
     <Col className="usps m-2 mx-auto" xs={5} sm={4} md={2} xl={2}>
+      <div className="item_inner">
       <div className="usps_img">
         <Image
           // pass asset, hotspot, and crop fields
@@ -20,6 +21,7 @@ function IconItem(props) {
       <div className="usps_text">
         <h4>{icon.heading}</h4>
         {icon.subText && <p>{icon.subText}</p>}
+      </div>
       </div>
     </Col>
   );

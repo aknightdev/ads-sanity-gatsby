@@ -24,7 +24,7 @@ function TrustCont(props) {
   return (
     <div className="y_trust_left">
       <h2>{props.data.heading}</h2>
-      <PortableText blocks={props.data.content} />
+      <div className="yt_cont"><PortableText blocks={props.data.content} /></div>
       <div className="y_trust_left_reat">
         <div className="y_trust_reat_sub">
           <GatsbyImage

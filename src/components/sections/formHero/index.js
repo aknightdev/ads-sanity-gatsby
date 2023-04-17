@@ -37,7 +37,7 @@ function FormHero(props) {
           </div>
         )}
 
-        <Row className="slider_text">
+        <Row className="slider_text" id={`${props._key == '417738b3e8b1' ? "dpn_banner" : ""}`}>
           <Col sm={12} md={6} lg={7}>
             <div className="slider_contant inner_slider">
               <h1>{props.heading}</h1>

@@ -51,6 +51,20 @@ export const query = graphql`
 
 const Page = props => {
   const { data, errors } = props;
+  React.useEffect(() => {
+    if(window.location.href.includes("director-penalty-notice")){
+      document.body.classList = 'dpn_main';
+    }
+    if(window.location.href.includes("personal-insolvency")){
+      document.body.classList = 'ads_main';
+    }
+    if(window.location.href.includes("liquidator")){
+      document.body.classList = 'liquidator_body';
+    }
+     return () => {
+       document.body.classList = '';
+     }
+   }, [])
 
   if (errors) {
     return (
@@ -69,11 +83,11 @@ const Page = props => {
   }
 
   const page = data.page || data.route.page;
-
+console.log('test--');
   const content = (page._rawContent || [])
     .filter(c => !c.disabled)
     .map((c, i) => {
-      let el = null;
+      let el = null;console.log(c._type)
       switch (c._type) {
         case "simpleHero":
           el = (
